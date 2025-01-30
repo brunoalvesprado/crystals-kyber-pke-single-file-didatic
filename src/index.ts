@@ -135,7 +135,7 @@ function dividePolynomials(dividend: Polynomial, dividingPolynomial: Polynomial,
 /**
  * Adds padding to polynomial blocks to ensure fixed size.
  * Adds byte 0x80 and fills the rest with zeros until the end whenever it is possible.
- * When the polynomial is the size of the block or larger, it does nothing.
+ * In the case of the polynomial being the same size of the block or larger, it does nothing.
  * @param {Polynomial} polynomial - Polynomial to be padded.
  * @param {number} blockSize - Block size.
  * @returns {Polynomial} - Padded polynomial.

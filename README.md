@@ -7,6 +7,7 @@ A Didactic direct approach implementation of Crystals-Kyber in TypeScript for No
 - Pure TypeScript implementation
 - Support for Kyber512, Kyber768, and Kyber1024 variants
 - Key generation, encryption, and decryption
+- For didatic purposes and better reading access, all coding is consolidated in a single file.
 
 ## Requirements
 
