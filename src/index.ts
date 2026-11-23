@@ -197,13 +197,13 @@ function removePaddingFromPolynomialBlocks(polynomial: Polynomial): Polynomial {
 }
 
 /**
- * Converts ASCII text into polynomial blocks with padding.
+ * Converts UTF-8 text into polynomial blocks with padding.
  * @param {string} text - Text to be converted.
  * @param {number} blockSize - Block size.
  * @returns {Polynomial[]} - Polynomial block with padding.
  */
 function textToPolynomialBlocks(text: string, blockSize: number): Polynomial[] {
-    var textBytes = Array.from(text).map(char => char.charCodeAt(0));  // Assumes ASCII text, meaning 8 bits per character.
+    var textBytes = Array.from(new TextEncoder().encode(text));
     const blocks: Polynomial[] = [];
     let currentBlock: number[] = [];
 
@@ -251,8 +251,8 @@ function polynomialBlocksToText(blocks: Polynomial[], blockSize: number): string
         }
     }
 
-    // Converts bytes back to characters and joins them to form the original text.
-    let text = String.fromCharCode(...textBytes);
+    // Converts UTF-8 bytes back to the original Unicode text.
+    let text = new TextDecoder().decode(new Uint8Array(textBytes));
 
     return text;
 }
